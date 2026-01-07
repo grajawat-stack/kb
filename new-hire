@@ -1,1 +1,8 @@
 - Accounts and access details required for sys new hire 
+
+Example requests
+https://netskope.atlassian.net/browse/IO-43378
+
+k8s-admin and admin-ro vault role in all commercial/prc namespaces.
+admin access to rancher and argo.
+AWS will need NSOrgViewer for all commercial accounts
