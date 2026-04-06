@@ -12,3 +12,8 @@ https://netskope.atlassian.net/wiki/spaces/SYE/pages/3865182810/Argo+CD
 PCM ticket guide
 ----------------
 Can you please create sys-terraform-eks user in Create sys-terraform-eks user in 930936105014 (ns-nonprod-eng-rbi-fedalpha) and put it in vault nonprod namespace.
+
+
+Netticket Example
+-----------------
+https://netskope.atlassian.net/browse/NET-26233
