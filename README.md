@@ -17,3 +17,19 @@ Can you please create sys-terraform-eks user in Create sys-terraform-eks user in
 Netticket Example
 -----------------
 https://netskope.atlassian.net/browse/NET-26233
+
+AWS Prod EKS Subnet allocations for ns-prod-eng-dlp-ami 878202268893
+
+Require subnets in production AWS network account for nodes and pods:
+
+Regions: eu-west-2
+AWS account: 878202268893
+
+3x /26 for nodes 
+
+3x /21 for pods 
+
+240.22.208.0/21
+240.22.216.0/21
+240.22.224.0/21
+
