@@ -33,3 +33,12 @@ AWS account: 878202268893
 240.22.216.0/21
 240.22.224.0/21
 
+
+# DELETE SEC 
+
+$ nsk cluster kubeconfig --name local
+$ export KUBECONFIG=~/.nsk/local.yaml
+(⎈|local:default)$ kubens argo
+(⎈|local:argo)$ kubectl delete $(kubectl get secret -o name | grep eks-workflow-service-dev)
+secret "cluster-eks-workflow-service-dev" deleted
+secret "metadata-eks-workflow-service-dev" deleted
