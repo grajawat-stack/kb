@@ -22,11 +22,11 @@ export RANCHER_CLUSTER=https://rancher.nonprod.k8s.aws.nsscloud.net/v3
 export RANCHER_TOKEN_KEY=xyz
 
 ### NSK Setup
-```bash
+
 export NSK_PROFILE=aws-nonprod
 
 ### Vault Setup
-```bash
+
 export VAULT_ADDR=https://us.nonprod.kms.nskope.net
 export VAULT_NAMESPACE=nonprod
 export VAULT_TOKEN=$(vault login -method=oidc role=k8s-admin -format=json 2>/dev/null | jq -r .auth.client_token)
@@ -37,7 +37,6 @@ Always verify with NSK that the correct cluster access is configured.
 🧹 Cleanup for EKS Default Clusters (Non-Karpenter)
 List PVCs and LoadBalancer Services
 
-```bash
 kubectl get pvc --all-namespaces
 kubectl get svc --all-namespaces -o wide | grep LoadBalancer
 
