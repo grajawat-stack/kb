@@ -53,7 +53,7 @@ echo $VAULT_TOKEN
 
 ## ✅ Pre-check
 
-* Always verify with NSK that the correct cluster access is configured.
+* Always verify with NSK that the correct cluster access is being configured, Double ensure by looking Node name on Rancher/EKS UI. 
 
 ---
 
