@@ -16,21 +16,15 @@ This document outlines the manual steps required to safely delete EKS clusters, 
 
 ## ⚙️ Environment Setup
 
-### Rancher Setup
+### Rancher, NSK, Vault Setup
 ```bash
 export RANCHER_CLUSTER=https://rancher.nonprod.k8s.aws.nsscloud.net/v3
 export RANCHER_TOKEN_KEY=xyz
-
-### NSK Setup
-
 export NSK_PROFILE=aws-nonprod
-
-### Vault Setup
-
 export VAULT_ADDR=https://us.nonprod.kms.nskope.net
 export VAULT_NAMESPACE=nonprod
 export VAULT_TOKEN=$(vault login -method=oidc role=k8s-admin -format=json 2>/dev/null | jq -r .auth.client_token)
-
+```bash
 
 ✅ Pre-check
 Always verify with NSK that the correct cluster access is configured.
