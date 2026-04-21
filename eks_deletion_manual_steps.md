@@ -6,11 +6,12 @@ This document outlines the manual steps required to safely delete EKS clusters, 
 
 ## 📌 Steps Summary
 
-1. Rancher, Vault, and NSK profile setup
-2. PVC / LoadBalancer service deletion (eks-default clusters)
-3. PVC / LoadBalancer / NodePools / NodeClaims deletion (Karpenter clusters)
-4. Run Terraform `plan` to identify known issues
-5. Run Terraform `destroy` to delete the cluster
+1. Rancher, Vault, and NSK profile setup.
+2. PVC and LoadBalancer service deletion.
+3. Additional step for Karpenter clusters NodePools and NodeClaims deletion.
+5. Run Terraform `plan` to identify known issues.
+6. Known issues/errors correction and re-verify with plan.
+7. Run Terraform `destroy` to delete the cluster.
 
 ---
 
