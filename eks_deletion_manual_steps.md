@@ -40,12 +40,13 @@ export VAULT_NAMESPACE=nonprod
 export VAULT_TOKEN=$(vault login -method=oidc role=k8s-admin -format=json 2>/dev/null | jq -r .auth.client_token)
 ```
 
-### Verify Variables
+### Verify Variables, out put must not be empty
 
 ```bash
 echo $RANCHER_CLUSTER
 echo $NSK_PROFILE
 echo $VAULT_ADDR
+echo $VAULT_TOKEN
 ```
 
 ---
