@@ -1,40 +1,50 @@
 # kb
 
-# Links
-https://netskope.atlassian.net/wiki/spaces/SYE/pages/3865182810/Argo+CD
-https://rancher.nonprod.k8s.aws.nsscloud.net
-https://argo.nonprod.k8s.aws.nsscloud.net
+## Links
+- Argo CD Docs: https://netskope.atlassian.net/wiki/spaces/SYE/pages/3865182810/Argo+CD  
+- Rancher (Non-Prod): https://rancher.nonprod.k8s.aws.nsscloud.net  
+- Argo (Non-Prod): https://argo.nonprod.k8s.aws.nsscloud.net  
 
-# PCM ticket guide
+---
 
-Can you please create sys-terraform-eks user in Create sys-terraform-eks user in 930936105014 (ns-nonprod-eng-rbi-fedalpha) and put it in vault nonprod namespace.
+## PCM Ticket Guide
 
+**Request:**
+Create a `sys-terraform-eks` user in the following account and add it to the Vault nonprod namespace.
 
-# Netticket Example
+- **Account ID:** 930936105014  
+- **Account Name:** ns-nonprod-eng-rbi-fedalpha  
 
-https://netskope.atlassian.net/browse/NET-26233
+---
 
-AWS Prod EKS Subnet allocations for ns-prod-eng-dlp-ami 878202268893
+## Netticket Example
 
-Require subnets in production AWS network account for nodes and pods:
+- Ticket: https://netskope.atlassian.net/browse/NET-26233  
 
-Regions: eu-west-2
-AWS account: 878202268893
+### AWS Prod EKS Subnet Allocations
 
-3x /26 for nodes 
+- **Environment:** Production  
+- **Account:** 878202268893  
+- **Region:** eu-west-2  
+- **Cluster:** ns-prod-eng-dlp-ami  
 
-3x /21 for pods 
+### Requirements
 
-240.22.208.0/21
-240.22.216.0/21
-240.22.224.0/21
+- **Nodes:**  
+  - 3 × /26 subnets  
 
+- **Pods:**  
+  - 3 × /21 subnets  
+    - 240.22.208.0/21  
+    - 240.22.216.0/21  
+    - 240.22.224.0/21  
 
-# Delete Secrets
+---
 
-$ nsk cluster kubeconfig --name local
-$ export KUBECONFIG=~/.nsk/local.yaml
-(⎈|local:default)$ kubens argo
-(⎈|local:argo)$ kubectl delete $(kubectl get secret -o name | grep eks-workflow-service-dev)
-secret "cluster-eks-workflow-service-dev" deleted
-secret "metadata-eks-workflow-service-dev" deleted
+## Delete Secrets
+
+```bash
+nsk cluster kubeconfig --name local
+export KUBECONFIG=~/.nsk/local.yaml
+kubens argo
+kubectl delete $(kubectl get secret -o name | grep eks-workflow-service-dev)
