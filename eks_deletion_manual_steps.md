@@ -143,7 +143,9 @@ kubectl patch nodeclaim <nodeclaim-name> -p '{"metadata":{"finalizers":null}}' -
 
 ```bash
 kubectl get nodes -l karpenter.sh/provisioner-name
-kubectl get svc --all-namespaces -o wide | grep LoadBalancer
+kubectl get nodepools --all
+kubectl get nodeclaims --all
+
 ```
 
 > ⚠️ Ensure all resources are deleted before proceeding to Terraform.
