@@ -51,15 +51,18 @@ kubectl delete $(kubectl get secret -o name | grep eks-workflow-service-dev)
 
 
 
-## PCM TICKET FOR sys-terraform-eks user (Accout name must the aws account name) 
-Request: Create a sys-terraform-eks user in the following account and add it to the Vault prod namespace.
+## PCM TICKET FOR sys-terraform-eks user (Accout name must the aws account name)
 
+```bash
+
+Request: Create a sys-terraform-eks user in the following account and add it to the Vault prod namespace.
 Account ID: 299975068617
 Account Name: ns-prod-pe-cd-dplymnt-orchestrator
 
 
 ## NET TICKET (check already created pod subnets in tracking sheet)
 
+```bash
 Require subnets in AWS network account for nodes and pods:
 
 Environment: Production
