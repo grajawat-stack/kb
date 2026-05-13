@@ -48,3 +48,36 @@ nsk cluster kubeconfig --name local
 export KUBECONFIG=~/.nsk/local.yaml
 kubens argo
 kubectl delete $(kubectl get secret -o name | grep eks-workflow-service-dev)
+
+
+
+## PCM TICKET FOR sys-terraform-eks user (Accout name must the aws account name) 
+Request: Create a sys-terraform-eks user in the following account and add it to the Vault prod namespace.
+
+Account ID: 299975068617
+Account Name: ns-prod-pe-cd-dplymnt-orchestrator
+
+
+## NET TICKET (check already created pod subnets in tracking sheet)
+
+Require subnets in AWS network account for nodes and pods:
+
+Environment: Production
+Participant Account: 299975068617
+Region: us-east-1
+Cluster: eks-cdss-dcp-prod-use1
+Requirements
+
+Nodes:
+3 × /26 subnets (CGN)
+
+Pods:
+3 × /21 subnets
+
+240.22.80.0/21	
+240.22.88.0/21		
+240.22.96.0/21
+
+We’re tracking EKS Clusters here:
+https://github.com/netSkopePlatformEng/terraform-aws-eks/blob/master/network/pod-subnets.md
+
