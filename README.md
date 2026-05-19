@@ -85,3 +85,28 @@ Pods:
 We’re tracking EKS Clusters here:
 https://github.com/netSkopePlatformEng/terraform-aws-eks/blob/master/network/pod-subnets.md
 ---
+
+nsmodule        = "eks-default-v5"
+account_id      = "682033468635"
+cluster_name    = "eks-sys-devgb"
+cluster_version = "1.34"
+
+eks_managed_node_groups = {
+  primary = {
+    min_size       = 1
+    max_size       = 10
+    desired_size   = 3
+    instance_types = ["m5.large"]
+  }
+}
+
+rancher_annotations = {
+  ClusterContact1 = "grajawat@netskope.com"
+}
+
+rancher_labels = {
+  ClusterOwner = "girirajsys"
+  plane        = "aws"
+}
+
+vault_role_groups = []
