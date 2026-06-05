@@ -110,3 +110,7 @@ rancher_labels = {
 }
 
 vault_role_groups = []
+
+
+
+https://netskope.atlassian.net/wiki/spaces/DataSecurityTeam/pages/6914441476/EKS+Cluster#How-to-Access
