@@ -1,1 +1,27 @@
 
+running out of time today...
+what I do is look for the latest version of the chart.
+helm repo add eks-charts https://aws.github.io/eks-charts
+helm repo update eks-chartsThen search for the chart
+$ helm search repo eks-charts/aws-load-balancer-controller
+NAME                                   	CHART VERSION	APP VERSION	DESCRIPTION
+eks-charts/aws-load-balancer-controller	3.4.0        	v3.4.0     	AWS Load Balancer Controller Helm chart for Kub...Then search for the image in values file
+$ helm show values eks-charts/aws-load-balancer-controller | grep -A2 image
+image:
+  repository: public.ecr.aws/eks/aws-load-balancer-controller
+  tag: v3.4.0
+
+So to get that into artifactory: https://github.com/netSkopePlatformEng/image-manage/pull/1058
+
+Then I get a copy of the default values and put it in the argo folder for reference.
+$ helm show values eks-charts/aws-load-balancer-controller > ../rancher-addons/helm-defaults/aws-lb-controller/default-3.4.0.yaml
+
+Now the applicationset changes.  When I created this thing I really screwed up and didn't include the CRDs with it.  Not sure how to fix that.  So we might as well keep it the same.
+helm pull eks-charts/aws-load-balancer-controller --untar
+mkdir -p ../rancher-addons/manifests/aws-elbv2/3-4-0/
+cp aws-load-balancer-controller/crds/* ../rancher-addons/manifests/aws-elbv2/3-4-0/
+rm -rf aws-load-balancer-controllerThe other option to skip the CRDs we can add --include-crds to the helm options which we could try on this release.  Lets look at that at a later date at this point...
+
+Now to update the applicationsets (rancher-addons): https://github.com/netSkopePlatformEng/rancher-addons/pull/2679
+
+That will get you testing.  Once tested need need check the images for KEV/CVE and patch if needed.  Then retest.  Then promote image/chart to all environments.  Then we can update the code to pull from artifactory only.
