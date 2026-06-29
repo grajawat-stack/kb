@@ -113,4 +113,12 @@ vault_role_groups = []
 
 
 
+
+
+Cluster access docs: https://netskope.atlassian.net/wiki/spaces/TIAT/pages/5590188154/Insights+Platform+EKS+Clusters+-+Creation+and+Access
+
+EKS cluster info guide: https://github.com/netSkopePlatformEng/terraform-aws-eks/blob/master/README.md
+
+
+
 https://netskope.atlassian.net/wiki/spaces/DataSecurityTeam/pages/6914441476/EKS+Cluster#How-to-Access
